@@ -35,6 +35,9 @@ bower_components
 # Documentation
 documentation/
 
+# Angular
+.angular/
+
 # node-waf configuration
 .lock-wscript
 

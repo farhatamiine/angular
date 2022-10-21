@@ -1,0 +1,161 @@
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <div class="d-flex justify-content-end align-items-end">
+            <button mat-raised-button class="btn" (click)="toggleFilter()">Filter</button>
+        </div>
+        <div *ngIf="showFilter" class="card border p-3">
+            <div class="row">
+                <div class="col-md-2 ">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Statut" type="email">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Vendeur" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Point relais" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Point D'enlèvement" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Client" type="email">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Numéro de suivi :" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Type d'expédition :" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Numéro d'expédition :" type="text">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field >
+                        <input matInput [matDatepicker]="EnlevementDe" placeholder="Enlevement de :" (click)="EnlevementDe.open()">
+                        <mat-datepicker-toggle matSuffix [for]="EnlevementDe"></mat-datepicker-toggle>
+                        <mat-datepicker #EnlevementDe></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field >
+                        <input matInput [matDatepicker]="EnlevementA" placeholder="A" (click)="EnlevementA.open()">
+                        <mat-datepicker-toggle matSuffix [for]="EnlevementA"></mat-datepicker-toggle>
+                        <mat-datepicker #EnlevementA></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field >
+                        <input matInput [matDatepicker]="ExpirationDe" placeholder="Expiration de :" (click)="ExpirationDe.open()">
+                        <mat-datepicker-toggle matSuffix [for]="ExpirationDe"></mat-datepicker-toggle>
+                        <mat-datepicker #ExpirationDe></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2">
+                    <mat-form-field >
+                        <input matInput [matDatepicker]="ExpirationA" placeholder="A :" (click)="ExpirationA.open()">
+                        <mat-datepicker-toggle matSuffix [for]="ExpirationA"></mat-datepicker-toggle>
+                        <mat-datepicker #ExpirationA></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="card border p-2">
+            <div class="d-flex justify-content-end align-items-end ">
+                <button mat-raised-button class="btn btn-outline-secondary mr-1">
+                    <i class="fa fa-bars mr-2"></i> Colis Non recuperes
+                </button>
+                <button mat-raised-button class="btn btn-outline-success mr-1">
+                    <i class="fa fa-plus mr-2"></i> Nouveau colis
+                </button>
+                <button (click)="open(mymodal)" mat-raised-button class="btn btn-outline-primary">
+                    <i class="fa fa-arrow-up-from-bracket mr-2"></i> Importer colis
+                </button>
+            </div>
+            <ng-template #mymodal let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This is example from ItSolutionStuff.com
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+                </div>
+            </ng-template>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>{{ tableData1.headerRow[0] }}</th>
+                        <th>{{ tableData1.headerRow[1] }}</th>
+                        <th>{{ tableData1.headerRow[2] }}</th>
+                        <th>{{ tableData1.headerRow[3] }}</th>
+                        <th>{{ tableData1.headerRow[4] }}</th>
+                        <th>{{ tableData1.headerRow[5] }}</th>
+                        <th>{{ tableData1.headerRow[6] }}</th>
+                        <th>{{ tableData1.headerRow[7] }}</th>
+                        <th>{{ tableData1.headerRow[8] }}</th>
+                        <th>{{ tableData1.headerRow[9] }}</th>
+                        <th>{{ tableData1.headerRow[10] }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let row of tableData1.dataRows">
+                        <td class="text-center">{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td>
+                        <td>&euro; {{row[4]}}</td>
+                        <td>{{row[5]}}</td>
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                        <td>{{row[8]}}</td>
+                        <td>{{row[9]}}</td>
+                        <td class="td-actions text-center">
+                            <button mat-raised-button type="button" class="btn btn-info mr-1">
+                                <i class="material-icons">person</i>
+                            </button>
+                            <button mat-raised-button type="button" class="btn btn-success mr-1">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button mat-raised-button type="button" class="btn btn-danger">
+                                <i class="material-icons">close</i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

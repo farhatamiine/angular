@@ -19,6 +19,9 @@ export const AppRoutes: Routes = [
         path: 'components',
         loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
     }, {
+        path: 'gestion-colis',
+        loadChildren: () => import('./colis/colis.module').then(m => m.ColisModule)
+    }, {
         path: 'forms',
         loadChildren: () => import('./forms/forms.module').then(m => m.Forms)
     }, {

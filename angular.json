@@ -62,6 +62,18 @@
             ]
           },
           "configurations": {
+            "development": {
+             "buildOptimizer": false,
+             "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": false,
+                  "inlineCritical": true
+                },
+                "fonts": true
+              },
+             "outputHashing": "all"
+           },
             "production": {
               "fileReplacements": [
                 {
@@ -84,19 +96,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
-            },
-            "development": {
-             "buildOptimizer": false,
-             "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": false,
-                  "inlineCritical": true
-                },
-                "fonts": true
-              },
-             "outputHashing": "all",
-           }
+            }
+            
           }
         },
         "serve": {
