@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators, UntypedFormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { FormBuilder, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, AbstractControl } from '@angular/forms';
 import { PasswordValidation } from './password-validator.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class ValidationFormsComponent {
-  emailFormControl = new FormControl('', [
+  emailFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.email,
   ]);
@@ -40,17 +40,17 @@ export class ValidationFormsComponent {
   validDestinationType: boolean = false;
 
   matcher = new MyErrorStateMatcher();
-  register : FormGroup;
-  login : FormGroup;
-  type : FormGroup;
+  register : UntypedFormGroup;
+  login : UntypedFormGroup;
+  type : UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: UntypedFormBuilder) {}
 
-   isFieldValid(form: FormGroup, field: string) {
+   isFieldValid(form: UntypedFormGroup, field: string) {
      return !form.get(field).valid && form.get(field).touched;
    }
 
-   displayFieldCss(form: FormGroup, field: string) {
+   displayFieldCss(form: UntypedFormGroup, field: string) {
      return {
        'has-error': this.isFieldValid(form, field),
        'has-feedback': this.isFieldValid(form, field)
@@ -75,12 +75,12 @@ export class ValidationFormsComponent {
        this.validateAllFormFields(this.type);
      }
    }
-   validateAllFormFields(formGroup: FormGroup) {
+   validateAllFormFields(formGroup: UntypedFormGroup) {
      Object.keys(formGroup.controls).forEach(field => {
        const control = formGroup.get(field);
-       if (control instanceof FormControl) {
+       if (control instanceof UntypedFormControl) {
          control.markAsTouched({ onlySelf: true });
-       } else if (control instanceof FormGroup) {
+       } else if (control instanceof UntypedFormGroup) {
          this.validateAllFormFields(control);
        }
      });

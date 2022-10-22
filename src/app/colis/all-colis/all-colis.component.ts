@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 
 declare interface TableData {
     headerRow: string[];
@@ -17,30 +18,36 @@ declare interface TableData {
 export class AllColisComponent implements OnInit {
 
     public tableData1: TableData;
+    addShipment = '/add-shipment';
     showFilter = false;
-    closeResult: string;
+    modalOption: NgbModalOptions = {}; // not null!
+    closeResult = '';
+    people = [
+        {value: 'Ahmed-0', viewValue: 'Ahmed'},
+        {value: 'Mohammed-1', viewValue: 'Mohammed'},
+        {value: 'Karim-2', viewValue: 'Karim'},
+        {value: 'Omar-3', viewValue: 'Omar'},
+        {value: 'Ousama-4', viewValue: 'Ousama'},
+        {value: 'Hamza-5', viewValue: 'Hamza'},
+        {value: 'Badr-6', viewValue: 'Badr'},
+    ];
 
-    constructor(private modalService: NgbModal) {
+    triCenter = [
+        {value: 'centre-1', viewValue: 'Centre 1'},
+        {value: 'centre-2', viewValue: 'Centre 2'},
+        {value: 'centre-3', viewValue: 'Centre 3'},
+        {value: 'centre-4', viewValue: 'Centre 4'},
+    ];
+    constructor(private modalService: NgbModal, private router: Router) {
     }
 
 
     open(content) {
-        this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-            this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
+        console.log(content);
+
+        this.modalService.open(content, this.modalOption);
     }
 
-    private getDismissReason(reason: any): string {
-        if (reason === ModalDismissReasons.ESC) {
-            return 'by pressing ESC';
-        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
-        } else {
-            return `with: ${reason}`;
-        }
-    }
 
     ngOnInit(): void {
         this.tableData1 = {
@@ -56,4 +63,7 @@ export class AllColisComponent implements OnInit {
         console.log(this.showFilter);
     }
 
+    redirectToShipment() {
+       this.router.navigateByUrl('add-shipment').then(r => console.log(r));
+    }
 }

@@ -1,1 +1,141 @@
-<p>add-shipment works!</p>
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <div class="card border">
+            <div class="card-header">
+                <h5>EXPÉDITION :</h5>
+            </div>
+            <div class="card-body ">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Client :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="Client" >
+                                    <mat-option *ngFor="let person of people" [value]="person.value">
+                                        {{ person.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Livraison  :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="Livraison" >
+                                    <mat-option *ngFor="let l of livraison" [value]="l.value">
+                                        {{ l.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Point relais :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="PointRelais" >
+                                    <mat-option *ngFor="let t of triCenter" [value]="t.value">
+                                        {{ t.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Mail de reception :</label>
+                        <div class="col-md-9">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="email">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card border mt-3">
+            <div class="card-header">
+                <h5>VENDEUR ET STOCKAGE :</h5>
+            </div>
+            <div class="card-body ">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Vendeurs :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="Client" >
+                                    <mat-option *ngFor="let person of people" [value]="person.value">
+                                        {{ person.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Assurance  :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="Assurance" >
+                                    <mat-option *ngFor="let l of livraison" [value]="l.value">
+                                        {{ l.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Centre de tri :</label>
+                        <div class="col-md-9">
+                            <mat-form-field>
+                                <mat-select placeholder="PointRelais" >
+                                    <mat-option *ngFor="let t of triCenter" [value]="t.value">
+                                        {{ t.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="card border mt-3">
+            <div class="card-header">
+                <h5>PAIEMENT :</h5>
+            </div>
+            <div class="card-body ">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Valeur déclarée :</label>
+                        <div class="col-md-9">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">COD  :</label>
+                        <div class="col-md-9">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 col-form-label">Poids  :</label>
+                        <div class="col-md-9">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="w-75 d-flex">
+                            <button mat-raised-button class="btn btn-success flex-grow-1" >Valider</button>
+                            <button mat-raised-button class="btn flex-grow-1" >Retour</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterLinkWithHref, RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {APP_BASE_HREF} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
@@ -38,60 +38,69 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedpluginModule} from './shared/fixedplugin/fixedplugin.module';
-import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import {SidebarModule} from './sidebar/sidebar.module';
+import {FooterModule} from './shared/footer/footer.module';
+import {NavbarModule} from './shared/navbar/navbar.module';
+import {FixedpluginModule} from './shared/fixedplugin/fixedplugin.module';
+import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
 
-import { AppRoutes } from './app.routing';
+import {AppRoutes} from './app.routing';
+import {WarehouseComponent} from './warehouse/warehouse.component';
+import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
+import {AddDriverComponent} from './add-driver/add-driver.component';
+import {DriverComponent} from './driver/driver.component';
 
 @NgModule({
-  exports: [
-    MatAutocompleteModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatChipsModule,
-    MatCheckboxModule,
-    MatStepperModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatNativeDateModule
-  ]
+    exports: [
+        MatAutocompleteModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatChipsModule,
+        MatCheckboxModule,
+        MatStepperModule,
+        MatDialogModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatMenuModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatSortModule,
+        MatTableModule,
+        MatTabsModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        MatNativeDateModule
+    ],
+    imports: [
+        RouterLinkWithHref
+    ],
+    declarations: []
 })
-export class MaterialModule {}
+export class MaterialModule {
+}
 
 @NgModule({
-    imports:      [
+    imports: [
         CommonModule,
         BrowserAnimationsModule,
         FormsModule,
-        RouterModule.forRoot(AppRoutes,{
-          useHash: true
+        RouterModule.forRoot(AppRoutes, {
+            useHash: false
         }),
         HttpClientModule,
 
@@ -99,16 +108,21 @@ export class MaterialModule {}
         SidebarModule,
         NavbarModule,
         FooterModule,
-        FixedpluginModule
+        FixedpluginModule,
     ],
     declarations: [
         AppComponent,
         AdminLayoutComponent,
+        WarehouseComponent,
+        AddWarehouseComponent,
+        AddDriverComponent,
+        DriverComponent,
         AuthLayoutComponent
     ],
-    providers : [
-      MatNativeDateModule
+    providers: [
+        MatNativeDateModule
     ],
-    bootstrap:    [ AppComponent ]
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

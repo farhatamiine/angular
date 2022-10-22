@@ -1,0 +1,67 @@
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <h3>Nouveau client</h3>
+        <div class="card">
+            <div class="card-header">
+                <h5>INFORMATIONS :</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="">
+                            <mat-form-field class="example-full-width">
+                                <input placeholder="Nom" matInput type="text">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            <mat-form-field class="example-full-width">
+                                <input placeholder="Prenom" matInput type="text">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="">
+                            <mat-form-field class="example-full-width">
+                                <textarea placeholder="Adresse" matInput></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            <mat-form-field>
+                                <mat-select placeholder="Ville">
+                                    <mat-option *ngFor="let city of cities" [value]="city.value">
+                                        {{ city.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            <mat-form-field class="example-full-width">
+                                <input placeholder="Email" matInput type="email">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            <mat-form-field class="example-full-width">
+                                <input placeholder="Mobile" matInput type="tel">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <button mat-raised-button class="btn btn-success flex-grow-1">Valider</button>
+
+                        <button mat-raised-button class="btn flex-grow-1">Annuler</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

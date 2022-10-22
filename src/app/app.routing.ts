@@ -1,57 +1,56 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
+import {WarehouseComponent} from './warehouse/warehouse.component';
+import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
+import {DriverComponent} from './driver/driver.component';
+import {AddDriverComponent} from './add-driver/add-driver.component';
 
 export const AppRoutes: Routes = [
     {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    }, {
-      path: '',
-      component: AdminLayoutComponent,
-      children: [
-          {
         path: '',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-    }, {
-        path: 'components',
-        loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
-    }, {
-        path: 'gestion-colis',
-        loadChildren: () => import('./colis/colis.module').then(m => m.ColisModule)
-    }, {
-        path: 'forms',
-        loadChildren: () => import('./forms/forms.module').then(m => m.Forms)
-    }, {
-        path: 'tables',
-        loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
-    }, {
-        path: 'maps',
-        loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule)
-    }, {
-        path: 'widgets',
-        loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule)
-    }, {
-        path: 'charts',
-        loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule)
-    }, {
-        path: 'calendar',
-        loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule)
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
     }, {
         path: '',
-        loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
+        component: AdminLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+            }, {
+                path: 'components',
+                loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule)
+            }, {
+                path: 'gestion-colis',
+                loadChildren: () => import('./colis/colis.module').then(m => m.ColisModule)
+            }, {
+                path: 'warehouses',
+                component: WarehouseComponent,
+            }, {
+                path: 'warehouse/add-warehouse',
+                component: AddWarehouseComponent,
+            }, {
+                path: 'drivers',
+                component: DriverComponent,
+            }, {
+                path: 'drivers/add-driver',
+                component: AddDriverComponent,
+            }, {
+                path: '',
+                loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
+            }, {
+                path: '',
+                loadChildren: () => import('./timeline/timeline.module').then(m => m.TimelineModule)
+            }
+        ]
     }, {
         path: '',
-        loadChildren: () => import('./timeline/timeline.module').then(m => m.TimelineModule)
-    }
-  ]}, {
-      path: '',
-      component: AuthLayoutComponent,
-      children: [{
-        path: 'pages',
-        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
-      }]
+        component: AuthLayoutComponent,
+        children: [{
+            path: 'pages',
+            loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+        }]
     }
 ];

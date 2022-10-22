@@ -1,9 +1,9 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators, UntypedFormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 
 declare const $: any;
 interface FileReaderEventTarget extends EventTarget {
@@ -16,7 +16,7 @@ interface FileReaderEvent extends Event {
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -38,21 +38,21 @@ export class WizardComponent implements OnInit, OnChanges, AfterViewInit {
     {value: 'barcelona-5', viewValue: 'Barcelona'},
     {value: 'moscow-6', viewValue: 'Moscow'},
   ];
-  emailFormControl = new FormControl('', [
+  emailFormControl = new UntypedFormControl('', [
     Validators.required,
     Validators.email,
   ]);
 
   matcher = new MyErrorStateMatcher();
 
-  type : FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  type : UntypedFormGroup;
+  constructor(private formBuilder: UntypedFormBuilder) {}
 
-  isFieldValid(form: FormGroup, field: string) {
+  isFieldValid(form: UntypedFormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
 
-  displayFieldCss(form: FormGroup, field: string) {
+  displayFieldCss(form: UntypedFormGroup, field: string) {
     return {
       'has-error': this.isFieldValid(form, field),
       'has-feedback': this.isFieldValid(form, field)
