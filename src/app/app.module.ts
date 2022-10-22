@@ -52,6 +52,8 @@ import {WarehouseComponent} from './warehouse/warehouse.component';
 import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
 import {AddDriverComponent} from './add-driver/add-driver.component';
 import {DriverComponent} from './driver/driver.component';
+import {FacturesComponent} from './factures/factures.component';
+import {AdministrationsComponent} from './administrations/administrations.component';
 
 @NgModule({
     exports: [
@@ -117,7 +119,9 @@ export class MaterialModule {
         AddWarehouseComponent,
         AddDriverComponent,
         DriverComponent,
-        AuthLayoutComponent
+        AuthLayoutComponent,
+        FacturesComponent,
+        AdministrationsComponent
     ],
     providers: [
         MatNativeDateModule

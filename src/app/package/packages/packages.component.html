@@ -1,0 +1,84 @@
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <div class="w-75 mx-auto">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>De</label>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="PackageDe" placeholder="Package de :"
+                               (click)="PackageDe.open()">
+                        <mat-datepicker-toggle matSuffix [for]="PackageDe"></mat-datepicker-toggle>
+                        <mat-datepicker #PackageDe></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <label>A</label>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="PackageA" placeholder="Package A :"
+                               (click)="PackageA.open()">
+                        <mat-datepicker-toggle matSuffix [for]="PackageA"></mat-datepicker-toggle>
+                        <mat-datepicker #PackageA></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Séléctionner un fournisseur</label>
+                    <mat-form-field>
+                        <mat-select  name="people">
+                            <mat-option *ngFor="let provider of providers" [value]="provider.value">
+                                {{ provider.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-end align-items-end ">
+
+                    <div>
+                        <button mat-raised-button class="btn btn-success flex-grow-1">Afficher les pacakages</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>{{ tableData1.headerRow[0] }}</th>
+                            <th>{{ tableData1.headerRow[1] }}</th>
+                            <th>{{ tableData1.headerRow[2] }}</th>
+                            <th>{{ tableData1.headerRow[3] }}</th>
+                            <th>{{ tableData1.headerRow[4] }}</th>
+                            <th>{{ tableData1.headerRow[5] }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let row of tableData1.dataRows">
+                            <td class="">{{row[0]}}</td>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[2]}}</td>
+                            <td>{{row[3]}}</td>
+                            <td>{{row[4]}}</td>
+                            <td class="td-actions">
+                                <button mat-raised-button type="button" class="btn btn-info mr-1">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button mat-raised-button type="button" class="btn btn-success mr-1">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button mat-raised-button type="button" class="btn btn-danger">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

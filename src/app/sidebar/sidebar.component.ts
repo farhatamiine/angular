@@ -51,6 +51,29 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'local_shipping'
     },
+    {
+        path: '/package',
+        title: 'Packages',
+        type: 'sub',
+        icontype: 'inventory_2',
+        collapse: 'package',
+        children: [
+            {path: 'packages', title: 'Packages', ab: 'P'},
+            {path: 'providers', title: 'Fourniseurs', ab: 'F'},
+        ]
+    },
+    {
+        path: '/factures',
+        title: 'Factures',
+        type: 'link',
+        icontype: 'receipt_long'
+    },
+    {
+        path: '/administrations',
+        title: 'Administration',
+        type: 'link',
+        icontype: 'admin_panel_settings'
+    },
 ];
 @Component({
     selector: 'app-sidebar-cmp',

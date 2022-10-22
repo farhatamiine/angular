@@ -6,6 +6,8 @@ import {WarehouseComponent} from './warehouse/warehouse.component';
 import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
 import {DriverComponent} from './driver/driver.component';
 import {AddDriverComponent} from './add-driver/add-driver.component';
+import {FacturesComponent} from './factures/factures.component';
+import {AdministrationsComponent} from './administrations/administrations.component';
 
 export const AppRoutes: Routes = [
     {
@@ -37,7 +39,20 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'drivers/add-driver',
                 component: AddDriverComponent,
-            }, {
+            },
+            {
+                path: 'package',
+                loadChildren: () => import('./package/package.module').then(m => m.PackageModule)
+            },
+            {
+                path: 'factures',
+                component: FacturesComponent,
+            },
+            {
+                path: 'administrations',
+                component: AdministrationsComponent,
+            },
+            {
                 path: '',
                 loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
             }, {
