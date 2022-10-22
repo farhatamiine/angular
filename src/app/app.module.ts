@@ -53,7 +53,8 @@ import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
 import {AddDriverComponent} from './add-driver/add-driver.component';
 import {DriverComponent} from './driver/driver.component';
 import {FacturesComponent} from './factures/factures.component';
-import {AdministrationsComponent} from './administrations/administrations.component';
+import {ComptesComponent} from './admins/comptes/comptes.component';
+import { ParametresComponent } from './parametres/parametres.component';
 
 @NgModule({
     exports: [
@@ -91,7 +92,9 @@ import {AdministrationsComponent} from './administrations/administrations.compon
     imports: [
         RouterLinkWithHref
     ],
-    declarations: []
+    declarations: [
+
+  ]
 })
 export class MaterialModule {
 }
@@ -105,7 +108,6 @@ export class MaterialModule {
             useHash: false
         }),
         HttpClientModule,
-
         MaterialModule,
         SidebarModule,
         NavbarModule,
@@ -121,7 +123,7 @@ export class MaterialModule {
         DriverComponent,
         AuthLayoutComponent,
         FacturesComponent,
-        AdministrationsComponent
+        ParametresComponent
     ],
     providers: [
         MatNativeDateModule

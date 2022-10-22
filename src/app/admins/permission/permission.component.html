@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <div class="card ">
+            <div class="card-body ">
+                <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">
+                            Role managament
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#link2" role="tablist">
+                            User types
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
+                            Resource
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active" id="link1">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-8 col-sm-4">
+                                <mat-form-field>
+                                    <mat-select placeholder="Select profile type :">
+                                        <mat-option *ngFor="let profile of profiles" [value]="profile.value">
+                                            {{ profile.viewValue }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th  colspan="2">{{ tableData1.headerRow[0] }}</th>
+                                    <th>{{ tableData1.headerRow[1] }}</th>
+                                    <th>{{ tableData1.headerRow[2] }}</th>
+                                    <th>{{ tableData1.headerRow[3] }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let row of tableData1.dataRows">
+                                    <td  colspan="2">{{row[0]}}</td>
+                                    <td>{{row[1]}}</td>
+                                    <td>{{row[2]}}</td>
+                                    <td>{{row[3]}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button mat-button class="btn btn-outline-success">Valider</button>
+                    </div>
+                    <div class="tab-pane" id="link2">
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Add new user type</label>
+                            <div class="col-sm-7">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-3">
+                                <button mat-button class="btn btn-outline-success">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="link3">
+                        <div class="row">
+                            <label class="col-sm-2 col-form-label">Add new resource</label>
+                            <div class="col-sm-7">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-3">
+                                <button mat-button class="btn btn-outline-success">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

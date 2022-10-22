@@ -7,7 +7,7 @@ import {AddWarehouseComponent} from './add-warehouse/add-warehouse.component';
 import {DriverComponent} from './driver/driver.component';
 import {AddDriverComponent} from './add-driver/add-driver.component';
 import {FacturesComponent} from './factures/factures.component';
-import {AdministrationsComponent} from './administrations/administrations.component';
+import {ParametresComponent} from './parametres/parametres.component';
 
 export const AppRoutes: Routes = [
     {
@@ -49,11 +49,15 @@ export const AppRoutes: Routes = [
                 component: FacturesComponent,
             },
             {
-                path: 'administrations',
-                component: AdministrationsComponent,
+                path: 'admins',
+                loadChildren: () => import('./admins/admins.module').then(m => m.AdminsModule)
             },
             {
-                path: '',
+                path: 'parametres',
+                component: ParametresComponent,
+            },
+            {
+                path: 'user',
                 loadChildren: () => import('./userpage/user.module').then(m => m.UserModule)
             }, {
                 path: '',

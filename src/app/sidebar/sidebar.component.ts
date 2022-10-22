@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 
 declare const $: any;
@@ -22,23 +22,23 @@ export interface ChildrenItems {
 
 // Menu Items
 export const ROUTES: RouteInfo[] = [{
-        path: '/dashboard',
-        title: 'Dashboard',
-        type: 'link',
-        icontype: 'dashboard'
-    }, {
-        path: '/gestion-colis',
-        title: 'Gestion Colis',
-        type: 'sub',
-        icontype: 'apps',
-        collapse: 'gestion-colis',
-        children: [
-            {path: 'shipment', title: 'Collis', ab: 'C'},
-            {path: 'seller', title: 'Vendeurs', ab: 'V'},
-            {path: 'relay', title: 'Point de relais', ab: 'R'},
-            {path: 'customers', title: 'Client', ab: 'CL'},
-        ]
-    },
+    path: '/dashboard',
+    title: 'Dashboard',
+    type: 'link',
+    icontype: 'dashboard'
+}, {
+    path: '/gestion-colis',
+    title: 'Gestion Colis',
+    type: 'sub',
+    icontype: 'apps',
+    collapse: 'gestion-colis',
+    children: [
+        {path: 'shipment', title: 'Collis', ab: 'C'},
+        {path: 'seller', title: 'Vendeurs', ab: 'V'},
+        {path: 'relay', title: 'Point de relais', ab: 'R'},
+        {path: 'customers', title: 'Client', ab: 'CL'},
+    ]
+},
     {
         path: '/warehouses',
         title: 'Warehouse',
@@ -69,12 +69,26 @@ export const ROUTES: RouteInfo[] = [{
         icontype: 'receipt_long'
     },
     {
-        path: '/administrations',
+        path: '/admins',
         title: 'Administration',
-        type: 'link',
-        icontype: 'admin_panel_settings'
+        type: 'sub',
+        icontype: 'admin_panel_settings',
+        collapse: 'admins',
+        children: [
+            {path: 'comptes', title: 'Comptes', ab: 'C'},
+            {path: 'history', title: 'Historique', ab: 'HS'},
+            {path: 'permission', title: 'Permission', ab: 'PM'},
+        ]
     },
+    {
+        path: '/parametres',
+        title: 'Parametres',
+        type: 'link',
+        icontype: 'settings'
+    },
+
 ];
+
 @Component({
     selector: 'app-sidebar-cmp',
     templateUrl: 'sidebar.component.html',
@@ -83,6 +97,7 @@ export const ROUTES: RouteInfo[] = [{
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
     ps: any;
+
     isMobileMenu() {
         if ($(window).width() > 991) {
             return false;
@@ -97,11 +112,13 @@ export class SidebarComponent implements OnInit {
             this.ps = new PerfectScrollbar(elemSidebar);
         }
     }
-    updatePS(): void  {
+
+    updatePS(): void {
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
             this.ps.update();
         }
     }
+
     isMac(): boolean {
         let bool = false;
         if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {

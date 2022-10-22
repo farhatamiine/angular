@@ -1,0 +1,109 @@
+<div class="main-content">
+    <div class="container-fluid mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Sécutité</h4>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-sm-4">
+                        <p class="mb-0">Adresse mail</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <p class="mb-0">admin@gmail.com</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <button class="btn-link btn text-primary" (click)="open(mail)">Changer</button>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <p class="mb-0">Mot de passe</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <p class="mb-0">********</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <button class="btn-link text-primary btn" (click)="open(pwd)">Changer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #mail let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Changement de l'adresse mail</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-body">
+            <div class="row">
+                <label class="col-md-3 col-2 col-form-label">Email actuel</label>
+                <div class="col-md-9 col-9">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-3 col-2 col-form-label">Nouveau Email</label>
+                <div class="col-md-9 col-9">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-3 col-2 col-form-label">Confirmation du nouveau Email</label>
+                <div class="col-md-9 col-9">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+<ng-template #pwd let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Changement du mot de passe</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <label class="col-md-3 col-2 col-form-label">Mot de passe actuel</label>
+            <div class="col-md-9 col-9">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-3 col-2 col-form-label">Nouveau mot de passe</label>
+            <div class="col-md-9 col-9">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-3 col-2 col-form-label">Confirmation du nouveau mot de passe</label>
+            <div class="col-md-9 col-9">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
