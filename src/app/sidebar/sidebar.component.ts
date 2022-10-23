@@ -86,6 +86,12 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'settings'
     },
+    {
+        path: '/pages/login',
+        title: 'Logout',
+        type: 'link',
+        icontype: 'logout'
+    },
 
 ];
 

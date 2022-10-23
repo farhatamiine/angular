@@ -31,35 +31,44 @@
                     </div>
                 </div>
             </div>
+            <div class="card-footer d-flex flex-column align-items-start" id="pwdPolicy">
+                <p class="font-weight-bold">Pour raison de sécurité, Le mot de passe doit respecter des
+                    exigences de complexité, Il doit contenir</p>
+                <p><i class="material-icons mr-2">check</i> 8 caractères au minimum </p>
+                <p><i class="material-icons mr-2">check</i> Au moins un caractère majuscule </p>
+                <p><i class="material-icons mr-2">check</i> Au moins un caractère minuscule </p>
+                <p><i class="material-icons mr-2">check</i> Au moins un caractère numérique </p>
+                <p><i class="material-icons mr-2">check</i> Au moins un caractère non alphanumérique </p>
+            </div>
         </div>
     </div>
 </div>
-<ng-template #mail let-modal>
+<ng-template #mail let-modal class="modal-width">
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Changement de l'adresse mail</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <div class="modal-body">
-            <div class="row">
-                <label class="col-md-3 col-2 col-form-label">Email actuel</label>
-                <div class="col-md-9 col-9">
+            <div class="row align-items-center">
+                <label class="col-md-5 col-2 col-form-label">Email actuel</label>
+                <div class="col-md-7 col-9">
                     <mat-form-field class="example-full-width">
                         <input matInput type="email">
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row">
-                <label class="col-md-3 col-2 col-form-label">Nouveau Email</label>
-                <div class="col-md-9 col-9">
+            <div class="row align-items-center">
+                <label class="col-md-5 col-2 col-form-label">Nouveau Email</label>
+                <div class="col-md-7 col-9">
                     <mat-form-field class="example-full-width">
                         <input matInput type="email">
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row">
-                <label class="col-md-3 col-2 col-form-label">Confirmation du nouveau Email</label>
-                <div class="col-md-9 col-9">
+            <div class="row align-items-center">
+                <label class="col-md-5 col-2 col-form-label">Confirmation d' Email</label>
+                <div class="col-md-7 col-9">
                     <mat-form-field class="example-full-width">
                         <input matInput type="email">
                     </mat-form-field>
@@ -72,31 +81,31 @@
     </div>
 </ng-template>
 
-<ng-template #pwd let-modal>
+<ng-template #pwd let-modal class="modal-width">
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Changement du mot de passe</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <div class="row">
-            <label class="col-md-3 col-2 col-form-label">Mot de passe actuel</label>
-            <div class="col-md-9 col-9">
+        <div class="row align-items-center">
+            <label class="col-md-5 col-2 col-form-label">Mot de passe actuel</label>
+            <div class="col-md-7 col-9">
                 <mat-form-field class="example-full-width">
                     <input matInput type="password">
                 </mat-form-field>
             </div>
         </div>
-        <div class="row">
-            <label class="col-md-3 col-2 col-form-label">Nouveau mot de passe</label>
-            <div class="col-md-9 col-9">
+        <div class="row align-items-center">
+            <label class="col-md-5 col-2 col-form-label">Nouveau mot de passe</label>
+            <div class="col-md-7 col-9">
                 <mat-form-field class="example-full-width">
                     <input matInput type="password">
                 </mat-form-field>
             </div>
         </div>
-        <div class="row">
-            <label class="col-md-3 col-2 col-form-label">Confirmation du nouveau mot de passe</label>
-            <div class="col-md-9 col-9">
+        <div class="row align-items-center">
+            <label class="col-md-5 col-2 col-form-label">Confirmation du mot de passe</label>
+            <div class="col-md-7 col-9">
                 <mat-form-field class="example-full-width">
                     <input matInput type="password">
                 </mat-form-field>

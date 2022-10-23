@@ -1,3 +1,17 @@
 ::ng-deep ngb-modal-backdrop {
     z-index: 1050 !important;
 }
+
+.col-form-label{
+    font-size: 15px !important;
+}
+
+#pwdPolicy{
+    padding-left: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+#pwdPolicy p{
+    display: flex;
+
+}
