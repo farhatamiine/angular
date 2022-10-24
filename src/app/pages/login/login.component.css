@@ -1,8 +1,52 @@
-.card-login{
+.card {
     height: 25rem;
     width: 24rem;
 }
 
-.input-group{
+.input-group {
     margin-bottom: 14px;
+}
+
+.padding {
+    padding-left: 5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    /*Tablets [601px -> 1200px]*/
+    .padding {
+        padding-top: 21vh;
+        padding-left: 2rem;
+    }
+
+    .card {
+        height: 25rem;
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /*Big smartphones [426px -> 600px]*/
+    .padding {
+        padding-top: 21vh;
+        padding-left: 1rem;
+    }
+
+    .card {
+        height: 25rem;
+        width: auto;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
+    .padding {
+        padding-top: 21vh;
+        padding-left: 1rem;
+    }
+
+    .card {
+        height: 25rem;
+        width: auto;
+    }
 }
