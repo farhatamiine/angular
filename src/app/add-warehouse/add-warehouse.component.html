@@ -6,56 +6,56 @@
                 <h5>INFORMATIONS :</h5>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">Nom :</label>
-                    <div class="col-sm-10">
-                        <mat-form-field class="example-full-width">
-                            <input matInput type="text">
-                        </mat-form-field>
+                <form [formGroup]="addWarehouse" novalidate>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Nom :</label>
+                        <div class="col-sm-10">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="text" formControlName="name" placeholder="Nom" required>
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">Address :</label>
-                    <div class="col-sm-10">
-                        <mat-form-field class="example-full-width">
-                            <textarea matInput></textarea>
-                        </mat-form-field>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Address :</label>
+                        <div class="col-sm-10">
+                            <mat-form-field class="example-full-width">
+                                <textarea formControlName="address" placeholder="address" matInput required></textarea>
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">Address :</label>
-                    <div class="col-sm-10">
-                        <mat-form-field>
-                            <mat-select placeholder="Ville">
-                                <mat-option *ngFor="let city of cities" [value]="city.value">
-                                    {{ city.viewValue }}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Address :</label>
+                        <div class="col-sm-10">
+                            <mat-form-field>
+                                <mat-select placeholder="Ville" formControlName="ville">
+                                    <mat-option *ngFor="let city of cities" [value]="city.value">
+                                        {{ city.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">Telephone :</label>
-                    <div class="col-sm-10">
-                        <mat-form-field class="example-full-width">
-                            <input matInput type="tel">
-                        </mat-form-field>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Telephone :</label>
+                        <div class="col-sm-10">
+                            <mat-form-field class="example-full-width">
+                                <input formControlName="telephone" placeholder="Numero du telephone" matInput type="tel" required>
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-sm-2 col-form-label">Responsable :</label>
-                    <div class="col-sm-10">
-                        <mat-form-field class="example-full-width">
-                            <input matInput type="text" placeholder="nom du responsable">
-                        </mat-form-field>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Responsable :</label>
+                        <div class="col-sm-10">
+                            <mat-form-field class="example-full-width">
+                                <input matInput type="text" formControlName="responsable" required
+                                       placeholder="nom du responsable">
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-12 d-flex w-50 mx-auto">
-                    <button mat-raised-button class="btn btn-success flex-grow-1">Valider</button>
-
-                    <button mat-raised-button class="btn flex-grow-1">Annuler</button>
-
-                </div>
+                    <div class="col-md-12 d-flex w-50 mx-auto">
+                        <button mat-raised-button type="submit" [disabled]="!addWarehouse.valid" class="btn btn-success flex-grow-1">Valider</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

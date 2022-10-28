@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-add-warehouse',
@@ -6,8 +7,9 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./add-warehouse.component.css']
 })
 export class AddWarehouseComponent implements OnInit {
+    addWarehouse: FormGroup;
 
-    constructor() {
+    constructor(private fb: FormBuilder) {
     }
 
     cities = [
@@ -21,6 +23,22 @@ export class AddWarehouseComponent implements OnInit {
     ];
 
     ngOnInit(): void {
+        this.addWarehouse = this.fb.group({
+            name: ['', Validators.required ],
+            address: new FormControl('', Validators.compose([
+                Validators.required,
+                Validators.min(10),
+                Validators.max(30),
+            ])),
+            telephone: new FormControl('', Validators.compose([
+                Validators.required,
+                Validators.pattern('^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$')
+            ])),
+            responsable: ['', Validators.required ],
+            ville: ['', Validators.required ],
+        });
+
+
     }
 
 }
